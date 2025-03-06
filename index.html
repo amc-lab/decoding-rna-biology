@@ -13,11 +13,14 @@
         .logo { width: 250px; border: 2px solid black; }
         .title { margin-left: 20px; margin-bottom: 10px; font-size: 4em; text-align: center; }
         .subtitle { font-size: 1.5em; margin-top: 10px; text-align: center; }
-        .talk-container { display: flex; flex-direction: column; align-items: center; }
+        .programme-title { cursor: pointer }
+        .programme-container { display: none; flex-direction: column; align-items: center; width: 100%; }
+        .talk-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
         .talk { margin-bottom: 10px; text-align: left; width: 50%; margin-top: 20px; }
         .abstract { display: none; margin-left: 20px; font-style: italic; }
         .talk-title { margin-top: 10px; display: flex; align-items: center; }
-        .date { font-size: 1.5em; margin-top: 20px; margin-bottom: 0px; text-align: center; }
+        .date { font-size: 1.5em; margin-top: 20px; margin-bottom: 5px; text-align: center; }
+        .location-theatre { font-size: 1.25em; margin-top: 0px; margin-bottom: 0px; text-align: center; }
         .location { font-size: 1.5em; margin-top: 0px; margin-bottom: 0px; text-align: center; }
         .presenter-line { display: flex; justify-content: space-between; width: 100%; }
         .presenter-line::before { margin-right: 10px; }
@@ -26,9 +29,10 @@
         .time { background: white; padding: 0 10px; }
         .dots { flex: 1; border-bottom: 1px dotted black; margin: 0 10px; }
         .talk-title, .abstract { padding-left: 20px; padding-right: 20px; }
-        .dropdown-icon { cursor: pointer; margin-left: 10px; transition: transform 0.3s; font-size: 0.75em; }
+        .dropdown-icon { cursor: pointer; margin-left: 10px; transition: transform 0.3s; font-size: 1em; }
         .dropdown-icon.open { transform: rotate(90deg); }
         h3 { font-style: italic; }
+        .footer-logo { width: 100px; margin-top: 20px; }
 
         @media (max-width: 600px) {
             .title { font-size: 2.5em; }
@@ -38,6 +42,7 @@
             .presenter-line { flex-direction: column; align-items: flex-start; }
             .presenter, .time { padding: 0 5px; }
             .dots { display: none; }
+            .footer-logo { width: 50px; }
         }
     </style>
 </head>
@@ -47,82 +52,89 @@
         <p class="subtitle">5th <a href="https://londonrnaclub.uk/" target="_blank">London RNA Club</a> Minisymposium</p>
         <img src="logo.png" alt="Decoding RNA Biology Logo" class="logo">
         <p class="date">Wednesday 26th March 2025</p>
+        <p class="location-theatre">Denys Holland Lecture Theatre</p>
         <p class="location">
-            Denys Holland Lecture Theatre | <a href="https://maps.app.goo.gl/n1sfieSLyQo1Xb1J8" target="_blank">Bentham House</a> | UCL
+            <a href="https://maps.app.goo.gl/n1sfieSLyQo1Xb1J8" target="_blank">Bentham House</a> | UCL
         </p>
     </div>
     
-    <div class="talk-container">
-        <h2>Session 1</h2>
-        <div class="talk">
-            <div class="presenter-line">
-                <span class="presenter">Dr. John Doe, University of Example</span>
-                <span class="dots"></span>
-                <span class="time">09:00 AM</span>
+    <h1>Programme</h1>
+    <h1 class="programme-title" onclick="toggleProgramme()">⋮</h1>
+    <div class="programme-container">
+        <div class="talk-container">
+            <h2>Session 1</h2>
+            <div class="talk">
+                <div class="presenter-line">
+                    <span class="presenter">Dr. John Doe, University of Example</span>
+                    <span class="dots"></span>
+                    <span class="time">09:00 AM</span>
+                </div>
+                <div class="talk-title">
+                    Talk 1: The Future of AI
+                    <span class="dropdown-icon" id="icon-abstract1" onclick="toggleAbstract('abstract1')">+</span>
+                </div>
+                <div class="abstract" id="abstract1">
+                    <p>This talk explores the advancements in AI and their implications for society.</p>
+                    <p>Additional details about the talk can go here.</p>
+                </div>
             </div>
-            <div class="talk-title">
-                Talk 1: The Future of AI
-                <span class="dropdown-icon" id="icon-abstract1" onclick="toggleAbstract('abstract1')">▶</span>
+            
+            <div class="talk">
+                <div class="presenter-line">
+                    <span class="presenter">Dr. Jane Smith, Quantum Labs</span>
+                    <span class="dots"></span>
+                    <span class="time">10:00 AM</span>
+                </div>
+                <div class="talk-title">
+                    Talk 2: Quantum Computing
+                    <span class="dropdown-icon" id="icon-abstract2" onclick="toggleAbstract('abstract2')">+</span>
+                </div>
+                <div class="abstract" id="abstract2">
+                    <p>An introduction to quantum computing and its potential to revolutionize technology.</p>
+                    <p>Further insights and examples will be discussed.</p>
+                </div>
             </div>
-            <div class="abstract" id="abstract1">
-                <p>This talk explores the advancements in AI and their implications for society.</p>
-                <p>Additional details about the talk can go here.</p>
+
+            <h3>Coffee Break</h3>
+
+            <h2>Session 2</h2>
+            <div class="talk">
+                <div class="presenter-line">
+                    <span class="presenter">Dr. Alice Johnson, BioTech Inc.</span>
+                    <span class="dots"></span>
+                    <span class="time">11:00 AM</span>
+                </div>
+                <div class="talk-title">
+                    Talk 3: Advances in Biotechnology
+                    <span class="dropdown-icon" id="icon-abstract3" onclick="toggleAbstract('abstract3')">+</span>
+                </div>
+                <div class="abstract" id="abstract3">
+                    <p>This talk covers the latest advancements in biotechnology and their applications.</p>
+                    <p>Additional details about the talk can go here.</p>
+                </div>
+            </div>
+            
+            <div class="talk">
+                <div class="presenter-line">
+                    <span class="presenter">Dr. Bob Brown, Genomics Lab</span>
+                    <span class="dots"></span>
+                    <span class="time">12:00 PM</span>
+                </div>
+                <div class="talk-title">
+                    Talk 4: Genomics and Health
+                    <span class="dropdown-icon" id="icon-abstract4" onclick="toggleAbstract('abstract4')">+</span>
+                </div>
+                <div class="abstract" id="abstract4">
+                    <p>An overview of genomics research and its impact on healthcare.</p>
+                    <p>Further insights and examples will be discussed.</p>
+                </div>
             </div>
         </div>
         
-        <div class="talk">
-            <div class="presenter-line">
-                <span class="presenter">Dr. Jane Smith, Quantum Labs</span>
-                <span class="dots"></span>
-                <span class="time">10:00 AM</span>
-            </div>
-            <div class="talk-title">
-                Talk 2: Quantum Computing
-                <span class="dropdown-icon" id="icon-abstract2" onclick="toggleAbstract('abstract2')">▶</span>
-            </div>
-            <div class="abstract" id="abstract2">
-                <p>An introduction to quantum computing and its potential to revolutionize technology.</p>
-                <p>Further insights and examples will be discussed.</p>
-            </div>
-        </div>
-
-        <h3>Coffee Break</h3>
-
-        <h2>Session 2</h2>
-        <div class="talk">
-            <div class="presenter-line">
-                <span class="presenter">Dr. Alice Johnson, BioTech Inc.</span>
-                <span class="dots"></span>
-                <span class="time">11:00 AM</span>
-            </div>
-            <div class="talk-title">
-                Talk 3: Advances in Biotechnology
-                <span class="dropdown-icon" id="icon-abstract3" onclick="toggleAbstract('abstract3')">▶</span>
-            </div>
-            <div class="abstract" id="abstract3">
-                <p>This talk covers the latest advancements in biotechnology and their applications.</p>
-                <p>Additional details about the talk can go here.</p>
-            </div>
-        </div>
-        
-        <div class="talk">
-            <div class="presenter-line">
-                <span class="presenter">Dr. Bob Brown, Genomics Lab</span>
-                <span class="dots"></span>
-                <span class="time">12:00 PM</span>
-            </div>
-            <div class="talk-title">
-                Talk 4: Genomics and Health
-                <span class="dropdown-icon" id="icon-abstract4" onclick="toggleAbstract('abstract4')">▶</span>
-            </div>
-            <div class="abstract" id="abstract4">
-                <p>An overview of genomics research and its impact on healthcare.</p>
-                <p>Further insights and examples will be discussed.</p>
-            </div>
-        </div>
+        <h3>Pizza and Drinks</h3>
     </div>
-    
-    <h3>Pizza and Drinks</h3>
+
+    <img src="rnasociety.png" alt="RNA Society Logo" class="footer-logo">
 
     <script>
         function toggleAbstract(id) {
@@ -130,10 +142,22 @@
             var icon = document.getElementById('icon-' + id);
             if (abstract.style.display === "block") {
                 abstract.style.display = "none";
-                icon.textContent = "▶";
+                icon.textContent = "+";
             } else {
                 abstract.style.display = "block";
-                icon.textContent = "▼";
+                icon.textContent = "-";
+            }
+        }
+
+        function toggleProgramme() {
+            var programmeContainer = document.querySelector('.programme-container');
+            var programmeTitle = document.querySelector('.programme-title');
+            if (programmeContainer.style.display === "flex") {
+                programmeContainer.style.display = "none";
+                // programmeTitle.textContent = "Programme";
+            } else {
+                programmeContainer.style.display = "flex";
+                // programmeTitle.textContent = "Programme";
             }
         }
     </script>
