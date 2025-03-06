@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decoding RNA Biology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: "Alegreya", serif; margin: 20px; background-color: #FFFFFF; text-align: center; }
+        .header { display: flex; align-items: center; justify-content: center; flex-direction: column; }
+        .logo { width: 250px; border: 2px solid black; }
+        .title { margin-left: 20px; margin-bottom: 10px; font-size: 4em; text-align: center; }
+        .subtitle { font-size: 1.5em; margin-top: 10px; text-align: center; }
+        .talk-container { display: flex; flex-direction: column; align-items: center; }
+        .talk { margin-bottom: 10px; text-align: left; width: 50%; margin-top: 20px; }
+        .abstract { display: none; margin-left: 20px; font-style: italic; }
+        .talk-title { margin-top: 10px; display: flex; align-items: center; }
+        .date { font-size: 1.5em; margin-top: 20px; margin-bottom: 0px; text-align: center; }
+        .location { font-size: 1.5em; margin-top: 0px; margin-bottom: 0px; text-align: center; }
+        .presenter-line { display: flex; justify-content: space-between; width: 100%; }
+        .presenter-line::before { margin-right: 10px; }
+        .presenter-line::after { margin-left: 10px; }
+        .presenter { background: white; padding: 0 10px; }
+        .time { background: white; padding: 0 10px; }
+        .dots { flex: 1; border-bottom: 1px dotted black; margin: 0 10px; }
+        .talk-title, .abstract { padding-left: 20px; padding-right: 20px; }
+        .dropdown-icon { cursor: pointer; margin-left: 10px; transition: transform 0.3s; font-size: 0.75em; }
+        .dropdown-icon.open { transform: rotate(90deg); }
+        h3 { font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">Decoding RNA Biology</h1>
+        <p class="subtitle">5th <a href="https://londonrnaclub.uk/" target="_blank">London RNA Club</a> Minisymposium</p>
+        <img src="logo.png" alt="Decoding RNA Biology Logo" class="logo">
+        <p class="date">Wednesday 26th March 2025</p>
+        <p class="location">
+            Denys Holland Lecture Theatre | <a href="https://maps.app.goo.gl/n1sfieSLyQo1Xb1J8" target="_blank">Bentham House</a> | UCL
+        </p>
+    </div>
+    
+    <div class="talk-container">
+        <h2>Session 1</h2>
+        <div class="talk">
+            <div class="presenter-line">
+                <span class="presenter">Dr. John Doe, University of Example</span>
+                <span class="dots"></span>
+                <span class="time">09:00 AM</span>
+            </div>
+            <div class="talk-title">
+                Talk 1: The Future of AI
+                <span class="dropdown-icon" id="icon-abstract1" onclick="toggleAbstract('abstract1')">▶</span>
+            </div>
+            <div class="abstract" id="abstract1">
+                <p>This talk explores the advancements in AI and their implications for society.</p>
+                <p>Additional details about the talk can go here.</p>
+            </div>
+        </div>
+        
+        <div class="talk">
+            <div class="presenter-line">
+                <span class="presenter">Dr. Jane Smith, Quantum Labs</span>
+                <span class="dots"></span>
+                <span class="time">10:00 AM</span>
+            </div>
+            <div class="talk-title">
+                Talk 2: Quantum Computing
+                <span class="dropdown-icon" id="icon-abstract2" onclick="toggleAbstract('abstract2')">▶</span>
+            </div>
+            <div class="abstract" id="abstract2">
+                <p>An introduction to quantum computing and its potential to revolutionize technology.</p>
+                <p>Further insights and examples will be discussed.</p>
+            </div>
+        </div>
+
+        <h3>Coffee Break</h3>
+
+        <h2>Session 2</h2>
+        <div class="talk">
+            <div class="presenter-line">
+                <span class="presenter">Dr. Alice Johnson, BioTech Inc.</span>
+                <span class="dots"></span>
+                <span class="time">11:00 AM</span>
+            </div>
+            <div class="talk-title">
+                Talk 3: Advances in Biotechnology
+                <span class="dropdown-icon" id="icon-abstract3" onclick="toggleAbstract('abstract3')">▶</span>
+            </div>
+            <div class="abstract" id="abstract3">
+                <p>This talk covers the latest advancements in biotechnology and their applications.</p>
+                <p>Additional details about the talk can go here.</p>
+            </div>
+        </div>
+        
+        <div class="talk">
+            <div class="presenter-line">
+                <span class="presenter">Dr. Bob Brown, Genomics Lab</span>
+                <span class="dots"></span>
+                <span class="time">12:00 PM</span>
+            </div>
+            <div class="talk-title">
+                Talk 4: Genomics and Health
+                <span class="dropdown-icon" id="icon-abstract4" onclick="toggleAbstract('abstract4')">▶</span>
+            </div>
+            <div class="abstract" id="abstract4">
+                <p>An overview of genomics research and its impact on healthcare.</p>
+                <p>Further insights and examples will be discussed.</p>
+            </div>
+        </div>
+    </div>
+    
+    <h3>Pizza and Drinks</h3>
+
+    <script>
+        function toggleAbstract(id) {
+            var abstract = document.getElementById(id);
+            var icon = document.getElementById('icon-' + id);
+            if (abstract.style.display === "block") {
+                abstract.style.display = "none";
+                icon.textContent = "▶";
+            } else {
+                abstract.style.display = "block";
+                icon.textContent = "▼";
+            }
+        }
+    </script>
+</body>
+</html>
