@@ -29,6 +29,16 @@
         .dropdown-icon { cursor: pointer; margin-left: 10px; transition: transform 0.3s; font-size: 0.75em; }
         .dropdown-icon.open { transform: rotate(90deg); }
         h3 { font-style: italic; }
+
+        @media (max-width: 600px) {
+            .title { font-size: 2.5em; }
+            .subtitle, .date, .location { font-size: 1.2em; }
+            .logo { width: 150px; }
+            .talk { width: 90%; }
+            .presenter-line { flex-direction: column; align-items: flex-start; }
+            .presenter, .time { padding: 0 5px; }
+            .dots { display: none; }
+        }
     </style>
 </head>
 <body>
