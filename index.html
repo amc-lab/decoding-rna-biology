@@ -44,6 +44,15 @@
             .dots { display: none; }
             .footer-logo { width: 50px; }
         }
+
+        .programme-title::after {
+            content: " +";
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .programme-title.open::after {
+            content: " -";
+        }
     </style>
 </head>
 <body>
@@ -59,7 +68,7 @@
     </div>
     
     <h1>Programme</h1>
-    <h1 class="programme-title" onclick="toggleProgramme()">⋮</h1>
+    <h1 class="programme-title" onclick="toggleProgramme()"></h1>
     <div class="programme-container">
         <div class="talk-container">
             <h2>Session 1</h2>
@@ -201,8 +210,10 @@
             var programmeTitle = document.querySelector('.programme-title');
             if (programmeContainer.style.display === "flex") {
                 programmeContainer.style.display = "none";
+                programmeTitle.classList.remove('open');
             } else {
                 programmeContainer.style.display = "flex";
+                programmeTitle.classList.add('open');
             }
         }
     </script>
